@@ -3,17 +3,26 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom';
 
 import AddShiftPage from './pages/AddShiftPage/AddShiftPage';
-import TestPage from './pages/TestPage/TestPage/TestPage';
+import HomePage from './pages/HomePage/HomePage';
 import ShiftIndexPage from './pages/ShiftIndexPage/ShiftIndexPage';
 import ShiftDetailsPage from './pages/ShiftDetailsPage/ShiftDetailsPage';
-
+import AuthPage from './pages/AuthPage/AuthPage';
 class App extends Component {
+
+  state = {
+    user:null,
+  }
+
+  setUserInState = (incomingUserData) => {
+    this.setState({ user: incomingUserData})
+  }
 
   render () {
     return (
       <div className='App'>
+        {this.state.user ?
         <Switch>
-    
+  
           <Route path = '/shifts/new' render={(props) => (
               <AddShiftPage {...props}/>
           )}/>
@@ -26,12 +35,14 @@ class App extends Component {
               />
           )}/>  
              <Route path = '' render={(props) => (
-              <TestPage {...props}
+              <HomePage {...props}
               />
           )}/>
         
- 
         </Switch>
+        :
+        <AuthPage setUserInState={this.setUserInState}/>
+      }
       </div>    
   )
   }

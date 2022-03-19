@@ -25,9 +25,12 @@ async function shiftIndex(req,res) {
 async function shiftDetails(req, res) {
   try{
     console.log ("hello")
-    // console.log(req.body.id)
+    // console.log(req.user._id)
+    console.log(req.params)
+    // console.log (params)
 
-    let shifts = await ShiftModel.find({})
+
+    let shifts = await ShiftModel.find({}).populate().exec()
     res.status(200).json(shifts)        
 
   }
