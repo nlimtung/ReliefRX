@@ -1,0 +1,18 @@
+.AddShiftForm {
+    grid-column: 2/5;
+    grid-row:1/5;
+    text-align: center;
+    margin: 6vh 10vh 6vh 10vh;
+}
+
+
+.AddShiftForm input {
+    margin: 3vh 0 3vh 0;
+    height: 3vh;
+    width:60%;
+    font-size: 20px;
+    text-align: center;
+    padding: 5px;
+    font-family: Georgia, serif;
+}
+
