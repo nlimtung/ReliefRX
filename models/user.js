@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-const UserSchema = new mongoose.Schema(
+
+const userSchema = new mongoose.Schema(
     {
         name: {type: String, required: true},
         email: {
@@ -19,9 +20,16 @@ const UserSchema = new mongoose.Schema(
     }, 
     {
   timestamps: true,
+  
+  toJSON: {
+    transform: function(doc, ret) {
+      delete ret.password;
+      return ret;
+    }}
+
     }
 );
 
-let UserModel = mongoose.model('User', UserSchema); 
+let UserModel = mongoose.model('User', userSchema); 
 module.exports = UserModel;                           
 

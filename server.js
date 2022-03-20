@@ -18,8 +18,11 @@ if (process.env.NODE_ENV === 'production' || process.env.PREVIEW === 'true') {
 }
 app.use(express.static(path.join(__dirname, 'build')));
 
+
 app.use('/api/shifts', require('./routes/api/shifts.js'));
 app.use('/api/shifts', require('./routes/api/shifts.js'));
+app.use('/api/users', require('./routes/api/users'));
+
 
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));

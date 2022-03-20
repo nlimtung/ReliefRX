@@ -13,8 +13,17 @@ class App extends Component {
     user:null,
   }
 
+
   setUserInState = (incomingUserData) => {
     this.setState({ user: incomingUserData})
+  }
+
+  componentDidMount() {
+    let token = localStorage.getItem('token')
+    if (token) {
+      let userDoc = JSON.parse(window.atob(token.split('.')[1])).user // decode jwt token
+      this.setState({user: userDoc})      
+    }
   }
 
   render () {

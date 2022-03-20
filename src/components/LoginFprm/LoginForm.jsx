@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import { Component } from "react";
 
@@ -7,8 +9,7 @@ export default class SignUpForm extends Component {
         email:"",
         phone: "", 
         password: "", 
-        confirm: "", 
-        error: "", 
+    
     };
 
 
@@ -18,43 +19,35 @@ export default class SignUpForm extends Component {
           error: ''
         });
       };
-    
     handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            const reqBody = {
-                name: this.state.name,
-                email: this.state.email,
-                password: this.state.password,
-                confirm: this.state.confirm,
-              }
-
-            const signUp = await fetch('/api/users/signup', {
+            const signUp = await fetch('/api/users/login', {
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(reqBody)
+                body: JSON.stringify({
+                    name: this.state.name, 
+                    email: this.state.email, 
+                    password: this.state.password,})
               })
-
-              if (!signUp.ok) throw new Error(signUp)
-
-              const token = await signUp.json() 
-              window.localStorage.setItem('token', token)
               
-              const userDoc = await JSON.parse(window.atob(token.split('.')[1])).user; 
+              if (!signUp.ok) throw new Error('Fetch failed - Bad request')
+              
+              let token = await signUp.json() 
+              window.localStorage.setItem("token", token)              
+              const userDoc = JSON.parse(atob(token.split('.')[1])).user; 
               this.props.setUserInState(userDoc)
         }
         catch(err) {
-            console.log ("sign failed", err)
-            this.setState({error: 'Signup error'})
+            console.log ("login  failed", err)
+            this.setState({error: 'login in error'})
         }
     }
 
     render() {
-        const disable = this.state.password !== this.state.confirm;
-
         return (
             <div>
-                <form autoComplete="off"onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit}>
                     <label>Name</label>
                         <input 
                             type="text" 
@@ -77,16 +70,12 @@ export default class SignUpForm extends Component {
                             value={this.state.password} 
                             onChange={this.handleChange} 
                             required />
-                    <label>Confirm</label>
-                        <input 
-                        type="password" 
-                        name="confirm" 
-                        value={this.state.confirm} 
-                        onChange={this.handleChange} 
-                        required />
-                    <button type="submit"disabled={disable}>SIGN UP</button>
+
+                    <button type="submit" >SIGN UP</button>
                 </form>
             </div>
         )
     }
 }
+
+

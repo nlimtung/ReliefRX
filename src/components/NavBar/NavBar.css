@@ -16,18 +16,17 @@
  
 }
 
-.NavBar a {
+.NavBar li {
     height: 7vh;  
+    padding-top: 2vh;
     text-decoration: none;  
 }
 
-.NavBar a:hover {
+.NavBar li:hover {
     background-color: rgb(245, 225, 194);
+    cursor:pointer
 }
 
-.NavBar li {
-      padding-top: 2vh;
-}
 
 .NavBar h2 {
     padding-top: 4vh;

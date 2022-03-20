@@ -25,8 +25,7 @@ async function shiftIndex(req,res) {
 async function shiftDetails(req, res) {
   try{
     console.log ("hello")
-    // console.log(req.user._id)
-    console.log(req.params)
+     console.log(req.body)
     // console.log (params)
 
 
