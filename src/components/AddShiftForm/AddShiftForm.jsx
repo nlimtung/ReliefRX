@@ -43,14 +43,25 @@ export default function AddShiftForm(props) {
 
                 </label>
                 <label>Software:<br/>
-                    <input
+                    <select
                         name = "software"
                         type = "text"
                         value = {props.software}
                         onChange={(e)=>props.handleChange(e)}
-                    /> <br/>
+                        > 
+                            <option value = ""></option>
 
-                </label>
+                            <option value = "Kroll">Kroll</option>
+                            <option value = "Nexus">Nexus</option>
+                            <option value = "Fillware">Fillware</option>
+                            <option value = "Healthwatch/Delta">Healthwatch/Delta</option>
+                            <option value = "Other">Other</option>
+
+                    </select><br/>
+                        
+                        
+
+                </label><br/>
                 <label>Compensation:<br/>
                     <input
                         name = "compensation"

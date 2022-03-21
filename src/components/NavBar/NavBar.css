@@ -19,6 +19,8 @@
 .NavBar li {
     height: 7vh;  
     padding-top: 2vh;
+    /* padding-bottom: 2vh; */
+
     text-decoration: none;  
 }
 

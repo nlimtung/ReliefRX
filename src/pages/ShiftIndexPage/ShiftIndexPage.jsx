@@ -18,15 +18,23 @@ export default class ShiftIndexPage extends Component {
     handleButton= (e) =>{
       e.preventDefault()
 
+
+
+
+
+
+
+      
       console.log('click')
     }
+
+
     render(){
     return (
         <div className="page">
             <NavBar/>
 
-
-
+          
             <ShiftIndexItem allshifts={this.state.allshifts} handleButton = {this.handleButton}/>
   
 

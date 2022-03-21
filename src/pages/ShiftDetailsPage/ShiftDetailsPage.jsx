@@ -3,12 +3,13 @@ import React, { Component } from "react";
 
 export default class ShiftDetailsPage extends Component {
     state = {
+      name:"bell", 
         shiftDetails:[]
     }
 
     async componentDidMount() {
         try {
-          let fetchDetailsReponse = await fetch('/api/shifts/:id') 
+          let fetchDetailsReponse = await fetch('/api/shifts/getone') 
           let shiftdetails = await fetchDetailsReponse.json();
           this.setState({shiftDetails:shiftdetails})
         } catch (err) {

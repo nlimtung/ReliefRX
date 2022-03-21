@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const {Schema} = mongoose;
+
 
 const shiftSchema = new mongoose.Schema(
     {
@@ -11,7 +13,9 @@ const shiftSchema = new mongoose.Schema(
             enum: ['Kroll', 'Nexus', 'Fillware', 'Healthwatch/Delta', 'Other']
 
         }, 
-        compensation:Number
+        compensation:Number, 
+        user:  { type: Schema.Types.ObjectId, ref: 'User'}
+
     }, 
     {
   timestamps: true,

@@ -25,9 +25,10 @@ export default class AddShiftPage extends Component {
     handleSubmit= async (e) =>{
         e.preventDefault()
         try{
+            let jwt = localStorage.getItem('token')
             const createShift = await fetch("/api/shifts/new", {
                 method: "POST",
-                headers: {"Content-Type": "application/json"},
+                headers: {"Content-Type": "application/json", 'Authorization': 'Bearer ' + jwt},
                 body: JSON.stringify({
                     name:this.state.name,
                     address:this.state.address,
@@ -35,6 +36,7 @@ export default class AddShiftPage extends Component {
                     software:this.state.software,
                     compensation: this.state.compensation, 
                     city: this.state.city
+                     
                 })
             })
             let serverResponse = await createShift.json()

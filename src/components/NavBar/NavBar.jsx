@@ -11,6 +11,7 @@ export default class NavBar extends Component {
     window.location.href = '/'
   }
 
+
   render() {
     return (
       <div className = "NavBar">

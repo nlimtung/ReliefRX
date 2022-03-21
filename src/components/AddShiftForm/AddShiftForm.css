@@ -6,7 +6,7 @@
 }
 
 
-.AddShiftForm input {
+.AddShiftForm input,  select{
     margin: 3vh 0 3vh 0;
     height: 3vh;
     width:60%;
@@ -14,5 +14,8 @@
     text-align: center;
     padding: 5px;
     font-family: Georgia, serif;
+    position: relative;
+
+
 }
 
