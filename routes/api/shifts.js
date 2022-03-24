@@ -4,7 +4,7 @@ const shiftCtrl = require('../../controllers/shifts');
 
 router.post('/new', shiftCtrl.create);
 router.get('/', shiftCtrl.shiftIndex)
-router.get('/getone', shiftCtrl.shiftDetails)
+router.get('/:id', shiftCtrl.shiftDetails)
 
 
 module.exports = router;

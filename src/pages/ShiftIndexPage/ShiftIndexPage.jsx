@@ -4,26 +4,20 @@ import ShiftIndexItem from "../../components/ShiftIndexItem/ShiftIndexItem";
 
 export default class ShiftIndexPage extends Component {
     state = {
-        allshifts:[]
+        allshifts:[],
     }
     async componentDidMount() {
         try {
           let fetchShiftReponse = await fetch('/api/shifts') 
           let shifts = await fetchShiftReponse.json();
           this.setState({allshifts:shifts})
+
         } catch (err) {
           console.error('ERROR:', err) 
         }
       }
     handleButton= (e) =>{
       e.preventDefault()
-
-
-
-
-
-
-
       
       console.log('click')
     }

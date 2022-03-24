@@ -22,17 +22,16 @@ export default class SignUpForm extends Component {
     handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            const reqBody = {
-                name: this.state.name,
-                email: this.state.email,
-                password: this.state.password,
-                confirm: this.state.confirm,
-              }
 
             const signUp = await fetch('/api/users/signup', {
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(reqBody)
+                body: JSON.stringify({
+                    name: this.state.name,
+                    email: this.state.email,
+                    password: this.state.password,
+                    confirm: this.state.confirm,
+                  })
               })
 
               if (!signUp.ok) throw new Error(signUp)

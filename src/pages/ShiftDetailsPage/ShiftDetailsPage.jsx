@@ -1,15 +1,17 @@
 import React, { Component } from "react";
+import NavBar from "../../components/NavBar/NavBar";
+import ShiftDetails from "../../components/ShiftDetails/ShiftDetails";
+
 
 
 export default class ShiftDetailsPage extends Component {
     state = {
-      name:"bell", 
-        shiftDetails:[]
+      shiftDetails:[]
     }
 
     async componentDidMount() {
         try {
-          let fetchDetailsReponse = await fetch('/api/shifts/getone') 
+          let fetchDetailsReponse = await fetch('/api/shifts/:id') 
           let shiftdetails = await fetchDetailsReponse.json();
           this.setState({shiftDetails:shiftdetails})
         } catch (err) {
@@ -19,27 +21,27 @@ export default class ShiftDetailsPage extends Component {
 
       render() {
             return (
-                <div>
+                <div className="page">
+                  <NavBar/>
+
+  
 
 
                     {this.state.shiftDetails.filter(allshifts=> allshifts._id ===this.props.match.params.id).map(filteredShift =>(
-                        <li key = {filteredShift._id}>
-                        {filteredShift.name}
-                        </li>
+                          <ShiftDetails key = {filteredShift._id}
+                        name = {filteredShift.name}
+                        address = {filteredShift.address}
+                        city = {filteredShift.city}
+                        date = {filteredShift.date}
+                        software = {filteredShift.software}
+                        compensation = {filteredShift.compensation}
+
+                        />
                         ))}
 
-         {/* {this.state.shiftDetails.map ((s)=>(
-        <div className='index-card' key = {s._id} >
-            <h3>{s.name}</h3>
-            <li>{s.address}</li>
-            <li>{s.city}</li>
-
-           
-        </div>
-      ))} */}
 
                 </div>
-            )
+            )  
 
         }
 }

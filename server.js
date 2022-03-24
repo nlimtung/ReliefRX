@@ -1,22 +1,31 @@
 const express = require('express');
+
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 
+
 const app = express();
 
-require('dotenv').config();
-require('./config/database.js') ;
 
 app.use(logger('dev'));
 app.use(express.json());
 
+
+require('dotenv').config();
+require('./config/database.js') ;
+
+
 if (process.env.NODE_ENV === 'production' || process.env.PREVIEW === 'true') {
     app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
+    app.use(express.static(path.join(__dirname, 'build')));
 }
-app.use(express.static(path.join(__dirname, 'build')));
+  
+// app.post('/', (req, resp) => {
+//   console.log(request.body.params);
+// });
 
-app.use('/api/users', require('./routes/api/users'));
+app.use('/api/users', require('./routes/api/users.js'));
 app.use(require('./config/auth'));
 app.use('/api/shifts', require('./routes/api/shifts.js'));
 

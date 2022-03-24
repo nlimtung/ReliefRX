@@ -22,7 +22,7 @@ export default class SignUpForm extends Component {
     handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            const signUp = await fetch('/api/users/login', {
+            const login = await fetch('/api/users/login', {
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({
@@ -31,11 +31,11 @@ export default class SignUpForm extends Component {
                     password: this.state.password,})
               })
               
-              if (!signUp.ok) throw new Error('Fetch failed - Bad request')
+              if (!login.ok) throw new Error('Fetch failed - Bad request')
               
-              let token = await signUp.json() 
+              let token = await login.json() 
               window.localStorage.setItem("token", token)              
-              const userDoc = JSON.parse(atob(token.split('.')[1])).user; 
+              const userDoc = JSON.parse(window.atob(token.split('.')[1])).user; 
               this.props.setUserInState(userDoc)
         }
         catch(err) {
