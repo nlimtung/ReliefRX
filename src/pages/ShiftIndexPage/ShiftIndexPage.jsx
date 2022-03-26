@@ -8,7 +8,8 @@ export default class ShiftIndexPage extends Component {
     }
     async componentDidMount() {
         try {
-          let fetchShiftReponse = await fetch('/api/shifts') 
+          let jwt = localStorage.getItem('token')
+          let fetchShiftReponse = await fetch('/api/shifts', { headers: { 'Authorization': 'Bearer ' + jwt }}) 
           let shifts = await fetchShiftReponse.json();
           this.setState({allshifts:shifts})
 
