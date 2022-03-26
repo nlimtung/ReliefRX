@@ -27,8 +27,8 @@ async function login(req, res) {
 }
 async function details (req, res) {
   try{
-    console.log(req.user)  
-    const user = await UserModel.find({});
+    const user = await UserModel.find({_id: req.user._id});
+    console.log(user)
     res.status(200).json(user)
   }
   catch(err){

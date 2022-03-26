@@ -34,7 +34,7 @@ class App extends Component {
       <div className='App'>
         {this.state.user ?
         <Switch>    
-          <Route path = '/user' render={(props) => (
+          <Route path = '/profile' render={(props) => (
               <ProfilePage {...props} />
           )}/>
           <Route path = '/shifts/new' render={(props) => (

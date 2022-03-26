@@ -4,28 +4,37 @@ import ProfileInfo from "../../components/ProfileInfo/ProfileInfo";
 
 export default class ProfilePage extends Component {
     state = {
-        userdetails:[]
+        user:[]
     }
 
     async componentDidMount() {
-        try {            
-            let fetchedUserDetails = await fetch ('/api/users/') 
-            let userdetails = await fetchedUserDetails.json();
-            this.setState({userdetails: userdetails})
-        
+        try {
+          let jwt = localStorage.getItem('token')
+          let fetchShiftReponse = await fetch('/api/users', { headers: { 'Authorization': 'Bearer ' + jwt }}) 
+          let user = await fetchShiftReponse.json();
+          this.setState({user:user})
+      
+        } catch (err) {
+          console.error('ERROR:', err) 
         }
-        catch(err){
-            console.log('error', err)
-        }
-    }
+      }
+
+
 
     render() {
         return (
             <div className="page">
                 <NavBar/>
-                <ProfileInfo/>
-                {/* {this.state.allshifts}        */}
-{this.state.userdetails.name}
+                    {this.state.user.map((u)=>(
+            
+                        <ProfileInfo
+                        user= {this.state.user}
+                        />
+                    
+                    ))}
+                
+               
+
             </div>
 
         )

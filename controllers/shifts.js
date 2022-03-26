@@ -26,7 +26,7 @@ async function create (req, res) {
 async function shiftIndex(req, res) {
   try{
     // console.log(req.user._id)
-    let shifts = await ShiftModel.find({user: req.user._id})
+    let shifts = await ShiftModel.find()
     // console.log(shifts)
 // 
     res.status(200).json(shifts)        
