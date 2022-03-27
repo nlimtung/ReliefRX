@@ -19,14 +19,39 @@ export default class MyPostsPage extends Component {
           console.error('ERROR:', err) 
         }
       }
+
+      handleDelete= async (e) =>{
+        e.preventDefault()
+        try{
+          console.log(e.target.id)
+            const deleteShift = await fetch(`/api/shifts/${e.target.id}`,  {
+                method: "DELETE",
+                
+                headers: {"Content-Type": "application/json"},
+           
+        
+
+            })
+            let serverResponse = await deleteShift.json()
+            console.log("Delete Successful:", serverResponse)  
+        
+                console.log(serverResponse)
+        
+        }
+        catch(err) {
+            console.log("error", err)
+        }
+    }
+
     render(){
     return (
         <div className="page">
             <NavBar/>
-            <MyPostsIndex/>
-            {this.state.myPosts.map((m)=>(
-              <h1>{m.name}</h1>
-            ))}
+            <MyPostsIndex
+              myPosts = {this.state.myPosts}
+              handleDelete = {this.handleDelete}/>
+
+            
   
 
 

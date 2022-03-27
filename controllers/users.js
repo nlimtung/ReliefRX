@@ -45,8 +45,11 @@ async function details (req, res) {
 
 }
 
+
+
 module.exports = {
   create,
   login, 
-  details
+  details, 
+ 
 };

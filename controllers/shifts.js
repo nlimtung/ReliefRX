@@ -38,7 +38,6 @@ async function shiftDetails(req, res) {
 
   try{
 
-    console.log ("allposts")
     let shifts = await ShiftModel.find({user:req.user._id})
     res.status(200).json(shifts)        
 
@@ -62,7 +61,21 @@ async function shiftDetails(req, res) {
 //   }
 // }
 
+
+async function shiftDelete (req, res) {
+  try{
+
+    
+    let deleteShifts = await ShiftModel.findByIdAndDelete(req.params.id)
+    res.status(200).json(deleteShifts)        
+
+  }
+  catch(err){
+    res.status(400).json(err)
+  }
+}
+
 module.exports = {
-    create, shiftIndex, shiftDetails,
+    create, shiftIndex, shiftDetails,shiftDelete
     //  myPostIndex
   }
