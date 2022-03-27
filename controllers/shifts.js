@@ -38,8 +38,8 @@ async function shiftDetails(req, res) {
 
   try{
 
-    console.log ("hello")
-    let shifts = await ShiftModel.find({})
+    console.log ("allposts")
+    let shifts = await ShiftModel.find({user:req.user._id})
     res.status(200).json(shifts)        
 
   }
@@ -49,6 +49,20 @@ async function shiftDetails(req, res) {
   }
 }
 
+// async function myPostIndex (req, res) {
+//   try{
+//     console.log("myposts")
+
+//     let shifts = await ShiftModel.find()
+//     res.status(200).json(shifts)        
+//   }
+//   catch(err){
+//     res.status(400).json(err);
+
+//   }
+// }
+
 module.exports = {
-    create, shiftIndex, shiftDetails
+    create, shiftIndex, shiftDetails,
+    //  myPostIndex
   }

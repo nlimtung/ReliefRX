@@ -8,6 +8,7 @@ import ShiftIndexPage from './pages/ShiftIndexPage/ShiftIndexPage';
 import ShiftDetailsPage from './pages/ShiftDetailsPage/ShiftDetailsPage';
 import AuthPage from './pages/AuthPage/AuthPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
+import MyPostsPage from './pages/MyPostsPage/MyPostsPage';
 class App extends Component {
 
   state = {
@@ -42,13 +43,20 @@ class App extends Component {
           )}/>
           <Route path = '/shifts/all' render={(props) => (
               <ShiftIndexPage {...props}/>
+              
+          )}/>
+
+          <Route path = '/shifts/myposts' render={(props) => (
+              <MyPostsPage {...props}/>
           )}/>
           <Route path = '/shifts/:id' render={(props) => (
               <ShiftDetailsPage {...props} />
           )}/>  
+
           <Route path = '' render={(props) => (
               <HomePage {...props}/>
           )}/>
+  
    
         
         </Switch>

@@ -47,6 +47,8 @@ console.log('click')
             <Link to = "/shifts/new"><li>Submit a shift</li></Link>
             <Link to = '/shifts/all'><li>Available shifts</li></Link>
             <li>job postings</li>
+            <Link to = '/shifts/myposts'><li>My postings</li></Link>
+
             <Link to = '/profile'><li>Profile</li></Link>
             <li href = ""onClick={this.handleLogout}>Log out</li>
 

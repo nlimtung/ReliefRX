@@ -26,7 +26,6 @@ export default class SignUpForm extends Component {
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({
-                    name: this.state.name, 
                     email: this.state.email, 
                     password: this.state.password,})
               })
@@ -34,7 +33,7 @@ export default class SignUpForm extends Component {
               if (!login.ok) throw new Error('Fetch failed - Bad request')
               
               let token = await login.json() 
-              window.localStorage.setItem("token", token)              
+              localStorage.setItem("token", token)              
               const userDoc = JSON.parse(window.atob(token.split('.')[1])).user; 
               this.props.setUserInState(userDoc)
         }
