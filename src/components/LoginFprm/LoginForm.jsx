@@ -2,8 +2,11 @@
 
 import React from "react";
 import { Component } from "react";
+import './LoginForm.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
 
-export default class SignUpForm extends Component {
+export default class LoginForm extends Component {
     state = {
         name: "", 
         email:"",
@@ -45,32 +48,34 @@ export default class SignUpForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className="AuthForm">
+                <h1>Login</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Name</label>
+                    <label>Name</label><br/>
                         <input 
                             type="text" 
                             name="name" 
                             value={this.state.name} 
                             onChange={this.handleChange} 
-                            required />
-                    <label>Email</label>
+                            required /><br/>
+                    <label>Email</label><br/>
                         <input 
                         type="email" 
                         name="email" 
                         value={this.state.email} 
                         onChange={this.handleChange} 
                         required 
-                        />
-                    <label>Password</label>
+                        /><br/>
+                    <label>Password</label><br/>
                         <input 
                             type="password" 
                             name="password" 
                             value={this.state.password} 
                             onChange={this.handleChange} 
-                            required />
+                            required /><br/><br/>
 
-                    <button type="submit" >SIGN UP</button>
+                    <Button type="submit"variant="outline-dark">Log In </Button>
+
                 </form>
             </div>
         )

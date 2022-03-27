@@ -40,13 +40,12 @@ console.log('click')
     return (
       <div className = "NavBar">
           <ul>
-
-          {this.state.user.map((u)=>(
-            <h2>{u.name}</h2>
-          ))}
+            <h1>Relief RX</h1>
+            {this.state.user.map((u)=>(
+              <h3>{u.name}</h3>
+            ))}
             <Link to = "/shifts/new"><li>Submit a shift</li></Link>
             <Link to = '/shifts/all'><li>Available shifts</li></Link>
-            <li>job postings</li>
             <Link to = '/shifts/myposts'><li>My postings</li></Link>
 
             <Link to = '/profile'><li>Profile</li></Link>

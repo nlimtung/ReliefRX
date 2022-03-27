@@ -7,7 +7,8 @@ export default function AddShiftForm(props) {
             <h1>Post a shift</h1>
 
             <form onSubmit={(e)=>props.handleSubmit(e)}>
-                <label> Pharmacy Name:<br/>
+                <label> Pharmacy Name:</label><br/>
+
                     <input
                         name = "name"
                         type = "text"
@@ -15,8 +16,8 @@ export default function AddShiftForm(props) {
                         onChange={(e)=>props.handleChange(e)}
                     /><br/>
 
-                </label>
-                <label> City:<br/>
+                <label> City:</label><br/>
+
                     <input
                         name = "city"
                         type = "text"
@@ -24,16 +25,15 @@ export default function AddShiftForm(props) {
                         onChange={(e)=>props.handleChange(e)}
                     /><br/>
 
-                </label>
-                <label>Address:<br/>
+                <label>Address: </label><br/>
+
                     <input
                         name = "address"
                         type = "text"
                         value = {props.address}
                         onChange={(e)=>props.handleChange(e)}
                     /> <br/>
-                </label>
-                <label>Date:<br/>
+                <label>Date:</label><br/>
                      <input
                         name = "date"
                         type = "date"
@@ -41,8 +41,8 @@ export default function AddShiftForm(props) {
                         onChange={(e)=>props.handleChange(e)}
                     /> <br/>
 
-                </label>
-                <label>Software:<br/>
+                
+                <label>Software:</label><br/>
                     <select
                         name = "software"
                         type = "text"
@@ -59,10 +59,9 @@ export default function AddShiftForm(props) {
 
                     </select><br/>
                         
-                        
-
-                </label><br/>
-                <label>Compensation:<br/>
+                <br/>
+                <label>Compensation: </label><br/>
+              
                     <input
                         name = "compensation"
                         type = "number"
@@ -70,7 +69,6 @@ export default function AddShiftForm(props) {
                         onChange={(e)=>props.handleChange(e)}
                     /> <br/>
 
-                </label>
               
               <button
               type = "submit"

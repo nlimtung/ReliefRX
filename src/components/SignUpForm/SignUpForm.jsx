@@ -1,5 +1,9 @@
 import React from "react";
 import { Component } from "react";
+import './SignUpForm.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Button from 'react-bootstrap/Button';
 
 export default class SignUpForm extends Component {
     state = {
@@ -52,40 +56,48 @@ export default class SignUpForm extends Component {
         const disable = this.state.password !== this.state.confirm;
 
         return (
-            <div>
+            <div className="AuthForm">
+                <h1>Sign Up</h1>
                 <form autoComplete="off"onSubmit={this.handleSubmit}>
-                    <label>Name</label>
+                    <label>Name</label><br/>
                         <input 
                             type="text" 
                             name="name" 
                             value={this.state.name} 
                             onChange={this.handleChange} 
-                            required />
-                    <label>Email</label>
+                            required /><br/>
+                    <label>Email</label><br/>
                         <input 
                         type="email" 
                         name="email" 
                         value={this.state.email} 
                         onChange={this.handleChange} 
                         required 
-                        />
-                    <label>Password</label>
+                        /><br/>
+                    <label>Password</label><br/>
                         <input 
                             type="password" 
                             name="password" 
                             value={this.state.password} 
                             onChange={this.handleChange} 
-                            required />
-                    <label>Confirm</label>
+                            required /><br/>
+                    <label>Confirm</label><br/>
                         <input 
                         type="password" 
                         name="confirm" 
                         value={this.state.confirm} 
                         onChange={this.handleChange} 
-                        required />
-                    <button type="submit"disabled={disable}>SIGN UP</button>
+                        required /><br/><br/>
+
+
+                    {/* <button type="submit"disabled={disable}>SIGN UP</button> */}
+                    <Button type="submit"disabled={disable}variant="outline-dark">Sign Up</Button>
+
+
                 </form>
+
             </div>
         )
+
     }
 }

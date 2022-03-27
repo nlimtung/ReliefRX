@@ -1,29 +1,37 @@
 import { Component } from "react";
 import React from "react";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
-// import NavBar from "../../components/NavBar/NavBar";
+import NavBar from "../../components/NavBar/NavBar";
 import LoginForm from "../../components/LoginFprm/LoginForm";
+import LoginNav from "../../components/LoginInNav/LoginNav";
 
 
 export default class AuthPage extends Component {
+
     state = {
-        showLogin:true, 
+        displayLoginIn: true
     }
 
+
+    handleLoginChange = (e)=>{
+        this.setState({displayLoginIn:true})
+    }
+
+    handleSignUpChange = (e)=>{
+        this.setState({displayLoginIn:false})
+    }
 
     render () {
         return (
             <div className="page">
-                {/* <NavBar/> */}
-                {/* if you click this and show login  */}
-                <h2 onClick={() => (this.setState({showLogin: !this.state.showLogin}))}>
-                    {this.state.showLogin ? 'login': 'signup'}
-                </h2>
+                <LoginNav handleLoginChange = {this.handleLoginChange}
+                displayLoginIn = {this.displayLoginIn}
+                handleSignUpChange = {this.handleSignUpChange}/>
 
-
-                {this.state.showLogin ? 
-        <LoginForm setUserInState={this.props.setUserInState}/> :
-        <SignUpForm setUserInState={this.props.setUserInState} />
+                {this.state.displayLoginIn ?
+                    <LoginForm setUserInState={this.props.setUserInState}/> :
+                    <SignUpForm setUserInState={this.props.setUserInState} />
+                
                 }
             </div>
         )

@@ -3,11 +3,12 @@
     grid-row:1/5;
     text-align: center;
     margin: 6vh 10vh 6vh 10vh;
+
 }
 
 
 .AddShiftForm input,  select{
-    margin: 3vh 0 3vh 0;
+    margin: 2vh 0 2vh 0;
     height: 3vh;
     width:60%;
     font-size: 20px;
@@ -15,7 +16,9 @@
     padding: 5px;
     font-family: Georgia, serif;
     position: relative;
+}
 
-
+.AddShiftForm form {
+    padding-top: 2vh;
 }
 
