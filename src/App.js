@@ -9,6 +9,7 @@ import ShiftDetailsPage from './pages/ShiftDetailsPage/ShiftDetailsPage';
 import AuthPage from './pages/AuthPage/AuthPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import MyPostsPage from './pages/MyPostsPage/MyPostsPage';
+
 class App extends Component {
 
   state = {

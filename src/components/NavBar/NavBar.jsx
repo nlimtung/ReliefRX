@@ -41,9 +41,13 @@ console.log('click')
       <div className = "NavBar">
           <ul>
             <h1>Relief RX</h1>
+            {/* <ShiftDetails key = {filteredShift._id} */}
+
+
             {this.state.user.map((u)=>(
-              <h3>{u.name}</h3>
+              <h3 key = {u._id}>{u.name}</h3>
             ))}
+
             <Link to = "/shifts/new"><li>Submit a shift</li></Link>
             <Link to = '/shifts/all'><li>Available shifts</li></Link>
             <Link to = '/shifts/myposts'><li>My postings</li></Link>

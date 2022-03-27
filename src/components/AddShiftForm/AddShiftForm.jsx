@@ -1,5 +1,8 @@
 import React from "react";
-import './AddShiftForm.css'
+import './AddShiftForm.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+
 
 export default function AddShiftForm(props) {
     return (
@@ -69,11 +72,13 @@ export default function AddShiftForm(props) {
                         onChange={(e)=>props.handleChange(e)}
                     /> <br/>
 
-              
-              <button
+{/* <Button type="submit"disabled={disable}variant="outline-dark">Sign Up</Button> */}
+
+              <Button
+              variant="outline-dark"
               type = "submit"
               value = "submit"
-              >Submit Post</button>
+              >Submit Post</Button>
             </form>
         </div>
     )

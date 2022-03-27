@@ -7,7 +7,6 @@ export default class MyPostsPage extends Component {
     state = {
         myPosts: []
     }
-
     async componentDidMount() {
         try {
           let jwt = localStorage.getItem('token')
@@ -26,17 +25,11 @@ export default class MyPostsPage extends Component {
           console.log(e.target.id)
             const deleteShift = await fetch(`/api/shifts/${e.target.id}`,  {
                 method: "DELETE",
-                
                 headers: {"Content-Type": "application/json"},
-           
-        
-
-            })
+            })   
             let serverResponse = await deleteShift.json()
             console.log("Delete Successful:", serverResponse)  
-        
-                console.log(serverResponse)
-        
+            window.location.reload()
         }
         catch(err) {
             console.log("error", err)
@@ -50,14 +43,6 @@ export default class MyPostsPage extends Component {
             <MyPostsIndex
               myPosts = {this.state.myPosts}
               handleDelete = {this.handleDelete}/>
-
-            
-  
-
-
-  
-
-        
         </div>
     )
     }

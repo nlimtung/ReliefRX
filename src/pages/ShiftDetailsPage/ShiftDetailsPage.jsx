@@ -11,7 +11,7 @@ export default class ShiftDetailsPage extends Component {
 
     async componentDidMount() {
         try {
-          let fetchDetailsReponse = await fetch('/api/shifts/:id') 
+          let fetchDetailsReponse = await fetch('/api/shifts') 
           let shiftdetails = await fetchDetailsReponse.json();
           this.setState({shiftDetails:shiftdetails})
         } catch (err) {

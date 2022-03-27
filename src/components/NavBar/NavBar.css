@@ -18,13 +18,16 @@
 
 .NavBar li {
     height: 7vh;  
-    padding-top: 3vh;
+    padding-top: 2vh;
     
 }
 
 .NavBar li:hover {
     background-color: rgb(245, 225, 194);
-    cursor:pointer
+    cursor:pointer;
+    color: grey;
+
+
 }
 
 
