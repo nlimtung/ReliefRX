@@ -24,6 +24,7 @@ const shiftSchema = new mongoose.Schema(
 
         }, 
         compensation:Number, 
+        additionalDetails: "String",
         user:  { type: Schema.Types.ObjectId, ref: 'User'},
         comment: [commentSchema]
 

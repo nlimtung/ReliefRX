@@ -71,8 +71,15 @@ export default function AddShiftForm(props) {
                         value = {props.compensation}
                         onChange={(e)=>props.handleChange(e)}
                     /> <br/>
+                <label>Additional comments: </label><br/>
 
-{/* <Button type="submit"disabled={disable}variant="outline-dark">Sign Up</Button> */}
+                <input
+                        name = "additionalDetails"
+                        type = "text"
+                        value = {props.additionalDetails}
+                        onChange={(e)=>props.handleChange(e)}
+                    /> <br/>
+
 
               <Button
               variant="outline-dark"

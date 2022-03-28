@@ -35,7 +35,8 @@ export default class AddShiftPage extends Component {
                     date:this.state.date,
                     software:this.state.software,
                     compensation: this.state.compensation, 
-                    city: this.state.city
+                    city: this.state.city,
+                    additionalDetails: this.state.additionalDetails
                      
                 })
             })
@@ -47,7 +48,8 @@ export default class AddShiftPage extends Component {
                 date: '', 
                 software: '', 
                 compensation: '', 
-                city: ''
+                city: '',
+                additionalDetails: ''
             })
                 console.log(serverResponse)
         

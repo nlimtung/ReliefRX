@@ -11,7 +11,9 @@ async function create (req, res) {
       address:req.body.address,
       software: req.body.software, 
       compensation: req.body.compensation,
-      date:req.body.date
+      date:req.body.date, 
+      additionalDetails: req.body.additionalDetails
+
     });
 
 
@@ -25,22 +27,18 @@ async function create (req, res) {
 async function shiftIndex(req, res) {
   try{
     let shifts = await ShiftModel.find().populate('user').exec()
-
     res.status(200).json(shifts)        
   }
   catch(err){
     res.status(400).json(err);
-
   }
 }
 
 async function shiftDetails(req, res) {
 
   try{
-
     let shifts = await ShiftModel.find({user:req.user._id})
     res.status(200).json(shifts)        
-
   }
   catch(err){
     res.status(400).json(err);
@@ -65,10 +63,8 @@ async function shiftDetails(req, res) {
 async function shiftDelete (req, res) {
   try{
 
-    
     let deleteShifts = await ShiftModel.findByIdAndDelete(req.params.id)
     res.status(200).json(deleteShifts)        
-
   }
   catch(err){
     res.status(400).json(err)
@@ -77,25 +73,19 @@ async function shiftDelete (req, res) {
 
 async function addComment (req, res){
   try{
-    console.log(req.body.id)
-    console.log (req.body.comment)
-
     let shift = await ShiftModel.findById(req.body.id)
     let newComment = {
       comment: req.body.comment
     }
-
     shift.comment.push(newComment)
     shift.save()
     res.status(200).json(shift)
   }
   catch(err){
     res.status(400).json(err)
-
   }
 }
 
 module.exports = {
     create, shiftIndex, shiftDetails,shiftDelete, addComment
-    //  myPostIndex
   }
