@@ -18,4 +18,11 @@ code {
     width: 100vw;
     height: 100vh;
     font-family: Georgia, serif;
+
 }
+
+li {
+  list-style-type: none;
+
+}
+

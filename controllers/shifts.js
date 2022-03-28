@@ -46,20 +46,6 @@ async function shiftDetails(req, res) {
   }
 }
 
-// async function myPostIndex (req, res) {
-//   try{
-//     console.log("myposts")
-
-//     let shifts = await ShiftModel.find()
-//     res.status(200).json(shifts)        
-//   }
-//   catch(err){
-//     res.status(400).json(err);
-
-//   }
-// }
-
-
 async function shiftDelete (req, res) {
   try{
 

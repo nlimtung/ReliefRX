@@ -1,4 +1,37 @@
 .ShiftDetails {
-    grid-column: 2/4;
+    grid-column: 2/5;
     grid-row:1/5;
+    margin: 6vh 10vh 6vh 10vh;
+    /* background-color: rgb(245, 243, 234); */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+
 }
+
+
+.details-table {
+    justify-content: center;
+    padding-top: 40px;
+    text-align: center;
+
+}
+
+
+
+.details-card {
+    border-radius: 5px;  
+    margin: 0 100px 0 100px 
+
+}
+.ShiftDetails h1 {
+    text-align: center;
+}
+
+.ShiftDetails textarea {
+    width: 35%;
+    height: 100px;
+    box-sizing:border-box
+}
+
