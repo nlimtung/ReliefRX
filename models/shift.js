@@ -2,6 +2,16 @@ const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
 
+const commentSchema = new mongoose.Schema(
+    {
+
+       comment: String
+    }, 
+    {
+        timestamps: true,      
+    }
+)
+
 const shiftSchema = new mongoose.Schema(
     {
         name: String,
@@ -14,7 +24,8 @@ const shiftSchema = new mongoose.Schema(
 
         }, 
         compensation:Number, 
-        user:  { type: Schema.Types.ObjectId, ref: 'User'}
+        user:  { type: Schema.Types.ObjectId, ref: 'User'},
+        comment: [commentSchema]
 
     }, 
     {

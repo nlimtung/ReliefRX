@@ -7,7 +7,8 @@ function MyPostsIndex(props) {
       <div className = "MyPostsIndex" >
           {props.myPosts.map((m)=>(
             <div className='index-card'>
-              <h2>{m._id}</h2>
+              <h2>{m.name}</h2>
+              <p>{m.comment.map((e)=>(e.comment))}</p>
               <button>Edit</button>
               <button
                   id={m._id}

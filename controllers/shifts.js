@@ -75,7 +75,27 @@ async function shiftDelete (req, res) {
   }
 }
 
+async function addComment (req, res){
+  try{
+    console.log(req.body.id)
+    console.log (req.body.comment)
+
+    let shift = await ShiftModel.findById(req.body.id)
+    let newComment = {
+      comment: req.body.comment
+    }
+
+    shift.comment.push(newComment)
+    shift.save()
+    res.status(200).json(shift)
+  }
+  catch(err){
+    res.status(400).json(err)
+
+  }
+}
+
 module.exports = {
-    create, shiftIndex, shiftDetails,shiftDelete
+    create, shiftIndex, shiftDetails,shiftDelete, addComment
     //  myPostIndex
   }
