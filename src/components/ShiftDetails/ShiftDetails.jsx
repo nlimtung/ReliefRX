@@ -12,6 +12,12 @@ function ShiftDetails(props) {
       {props.address}{props.city}<br/>
       software: {props.software}<br/>
       compensation : {props.compensation}<br/>
+
+      <br/><br/>
+      contact: {props.user.name}<br/>
+      contact email : {props.user.email}
+
+      
     </div>
   );
 }

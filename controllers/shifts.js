@@ -24,7 +24,7 @@ async function create (req, res) {
 
 async function shiftIndex(req, res) {
   try{
-    let shifts = await ShiftModel.find()
+    let shifts = await ShiftModel.find().populate('user').exec()
 
     res.status(200).json(shifts)        
   }

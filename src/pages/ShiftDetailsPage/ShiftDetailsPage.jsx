@@ -10,14 +10,16 @@ export default class ShiftDetailsPage extends Component {
     }
 
     async componentDidMount() {
-        try {
-          let fetchDetailsReponse = await fetch('/api/shifts') 
-          let shiftdetails = await fetchDetailsReponse.json();
-          this.setState({shiftDetails:shiftdetails})
-        } catch (err) {
-          console.error('ERROR:', err) 
-        }
+      try {
+        let jwt = localStorage.getItem('token')
+        let fetchShiftReponse = await fetch('/api/shifts', { headers: { 'Authorization': 'Bearer ' + jwt }}) 
+        let shiftDetails = await fetchShiftReponse.json();
+        this.setState({shiftDetails:shiftDetails})
+
+      } catch (err) {
+        console.error('ERROR:', err) 
       }
+    }
 
       render() {
             return (
@@ -35,6 +37,7 @@ export default class ShiftDetailsPage extends Component {
                         date = {filteredShift.date}
                         software = {filteredShift.software}
                         compensation = {filteredShift.compensation}
+                        user = {filteredShift.user}
 
                         />
                         ))}
