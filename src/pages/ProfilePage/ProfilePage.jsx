@@ -7,22 +7,33 @@ export default class ProfilePage extends Component {
     state = {
         user:[], 
         licenseNumber:'',
-        jobStatus: ''
+        jobStatus: '',
+        showUpdateForm: false,
     }
 
 
 
     
     handleChange = (e) => {
+
         this.setState({
             [e.target.name]: e.target.value
         })
         
     };
+    handleEditSubmit=  (e) =>{
+        console.log("hello")
+
+        this.setState({
+            showUpdateForm: true
+        })
+    }
 
 
     handleSubmit= async (e) =>{
         e.preventDefault()
+
+
         try{
             console.log("hello")
             let jwt = localStorage.getItem('token')
@@ -30,6 +41,7 @@ export default class ProfilePage extends Component {
                 method: "PUT",
                 headers: {"Content-Type": "application/json", 'Authorization': 'Bearer ' + jwt},
                 body: JSON.stringify({
+                    
                     licenseNumber: this.state.licenseNumber,
                     jobStatus: this.state.jobStatus
                    
@@ -38,11 +50,14 @@ export default class ProfilePage extends Component {
             let serverResponse = await createShift.json()
             console.log("Success:", serverResponse)  
             this.setState({ 
-                licenseNumber:'',
-                jobStatus: '', 
+                // licenseNumber:'',
+                // jobStatus: '', 
+                showUpdateForm: false
        
             })
                 console.log(serverResponse)
+                window.location.reload()
+
         
         }
         catch(err) {
@@ -75,18 +90,30 @@ export default class ProfilePage extends Component {
             
                         <ProfileInfo
                         user= {this.state.user}
+                        oldlicenseNumber = {u.licenseNumber}
+                        oldjobStatus= {u.jobStatus}
+                        showUpdateForm = {this.state.showUpdateForm}
+                        handleEditSubmit = {this.handleEditSubmit}
                     
                         />
                         
                     
                     ))}
+
+                    {this.state.user.map((u)=>(
+
                     <UpdateProfileForm
                             user= {this.state.user}
                             licenseNumber = {this.state.licenseNumber}
                             jobStatus= {this.state.jobStatus}
                             handleChange= {this.handleChange}
                             handleSubmit= {this.handleSubmit}
+                            showUpdateForm = {this.state.showUpdateForm}
+                            oldLicenseNumber = {u.licenseNumber}
+                            oldJobStatus= {u.jobStatus}
+
                     />
+                    ))}
                 
                
 

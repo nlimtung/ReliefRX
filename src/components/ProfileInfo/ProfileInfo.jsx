@@ -11,6 +11,7 @@ function ProfileInfo(props) {
           <>
           <h1>{u.name}</h1>
           <br/> <br/>
+
           <div>
             <h6>email:</h6>
             <h4>{u.email}</h4><br/>
@@ -21,6 +22,10 @@ function ProfileInfo(props) {
           </div>
           </>
         ))}
+
+        <button onClick={(e)=>props.handleEditSubmit(e)}
+                      type = "submit"
+                      value = "submit">Edit Profile</button>
 
     </div>
   );
