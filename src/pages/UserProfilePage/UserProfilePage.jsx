@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import NavBar from "../../components/NavBar/NavBar";
 // import NavBar from "../../components/NavBar/NavBar";
 // import ShiftIndexItem from "../../components/ShiftIndexItem/ShiftIndexItem";
 import UserProfile from "../../components/UserProfile/UserProfile";
@@ -24,10 +25,13 @@ export default class UserProfilePage extends Component {
     render(){
     return (
         <div className="page">
+            <NavBar/>
             {this.state.users.filter(all =>all._id ===this.props.match.params.id).map(oneUser=>
           <UserProfile
                 name = {oneUser.name}
                 email = {oneUser.email}
+                licenseNumber= {oneUser.licenseNumber}
+                jobStatus = {oneUser.jobStatus}
           />
           )}
 

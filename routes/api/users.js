@@ -8,5 +8,6 @@ router.post('/login', usersCtrl.login);
 router.use(require('../../config/auth'));
 router.get ('/', usersCtrl.details)
 router.get ('/all', usersCtrl.all)
+router.put ("/:id/edit", usersCtrl.edit)
 
 module.exports = router;

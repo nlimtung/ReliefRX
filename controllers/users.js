@@ -50,12 +50,27 @@ async function all (req, res) {
     res.status(400).json(err);
   }
 }
+async function edit (req, res) {
+  try{
+    console.log(req.body)
+    const updatedProfile = {
+      licenseNumber:req.body.licenseNumber,
+      jobStatus:req.body.jobStatus,
+    }
+    console.log(req.user._id)
+    const user = await UserModel.findOneAndUpdate({_id:req.user._id}, updatedProfile, {new:true});
+    res.status(200).json(user)
+  }
+  catch(err){
+    res.status(400).json(err);
+  }
+}
 
 
 module.exports = {
   create,
   login, 
   details, 
-  all
+  all, edit
  
 };
