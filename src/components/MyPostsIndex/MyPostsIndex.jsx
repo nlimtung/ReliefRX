@@ -21,7 +21,6 @@ function MyPostsIndex(props) {
                 <Link to ={`/users/${c.commenterID}`}><Button variant="outline-dark">     Profile
                 </Button></Link>
                 <hr></hr>
-             See Details
          
 
             </>

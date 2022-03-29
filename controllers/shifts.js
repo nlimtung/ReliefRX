@@ -59,7 +59,6 @@ async function shiftDelete (req, res) {
 
 async function addComment (req, res){
   try{
-    console.log( req.user.name )
     let shift = await ShiftModel.findById(req.body.id)
     let newComment = {
       comment: req.body.comment,

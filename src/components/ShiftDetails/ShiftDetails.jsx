@@ -1,5 +1,7 @@
 import React from 'react';
 import './ShiftDetails.css';
+import { Link } from 'react-router-dom';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 
@@ -35,7 +37,9 @@ function ShiftDetails(props) {
           <hr/>
             CONTACT INFORMATION: <br/>
               name: {props.user.name}<br/>
-              contact email : {props.user.email}
+              contact email : {props.user.email}<br/>
+              <Link to ={`/users/${props.user._id}`}><Button variant="outline-dark">     Profile
+                </Button></Link>
           <br/>
           <hr/>
           <br/>
