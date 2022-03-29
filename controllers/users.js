@@ -41,11 +41,21 @@ async function details (req, res) {
   }
 }
 
+async function all (req, res) {
+  try{
+    const users = await UserModel.find();
+    res.status(200).json(users)
+  }
+  catch(err){
+    res.status(400).json(err);
+  }
+}
 
 
 module.exports = {
   create,
   login, 
   details, 
+  all
  
 };

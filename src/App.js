@@ -9,6 +9,7 @@ import ShiftDetailsPage from './pages/ShiftDetailsPage/ShiftDetailsPage';
 import AuthPage from './pages/AuthPage/AuthPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import MyPostsPage from './pages/MyPostsPage/MyPostsPage';
+import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
 
 class App extends Component {
 
@@ -52,6 +53,9 @@ class App extends Component {
           )}/>
           <Route path = '/shifts/:id' render={(props) => (
               <ShiftDetailsPage {...props} />
+          )}/>  
+          <Route path = '/users/:id' render={(props) => (
+              <UserProfilePage {...props} />
           )}/>  
 
           <Route path = '' render={(props) => (

@@ -50,6 +50,8 @@ export default class ShiftDetailsPage extends Component {
             this.setState({ 
               interest: ''
           })
+          alert("Thank you.Your Message has been sent.");
+
       
       }
       catch(err) {

@@ -5,7 +5,7 @@ import MyPostsIndex from "../../components/MyPostsIndex/MyPostsIndex";
 export default class MyPostsPage extends Component {
 
     state = {
-        myPosts: []
+        myPosts: [],
     }
     async componentDidMount() {
         try {
@@ -13,7 +13,6 @@ export default class MyPostsPage extends Component {
           let fetchShiftReponse = await fetch('/api/shifts/myposts', { headers: { 'Authorization': 'Bearer ' + jwt }}) 
           let myPosts = await fetchShiftReponse.json();
           this.setState({myPosts:myPosts})
-
         } catch (err) {
           console.error('ERROR:', err) 
         }
@@ -42,7 +41,8 @@ export default class MyPostsPage extends Component {
             <NavBar/>
             <MyPostsIndex
               myPosts = {this.state.myPosts}
-              handleDelete = {this.handleDelete}/>
+              handleDelete = {this.handleDelete}
+              users = {this.state.users}/>
         </div>
     )
     }

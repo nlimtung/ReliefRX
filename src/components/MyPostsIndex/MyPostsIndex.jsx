@@ -1,5 +1,6 @@
 import React from 'react';
 import './MyPostsIndex.css'
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 
@@ -15,10 +16,22 @@ function MyPostsIndex(props) {
               <u><h4>Messages</h4></u>
               {m.comment.map((c)=>
                 <>
-                <h5>{c.comment} <br/>Name: {c.commenter} Email:  {c.commenterMail}</h5><hr></hr>
-                </>
-              )}
+                <h5>{c.comment} <br/>Name: {c.commenter} Email:  {c.commenterMail}</h5>
+             
+                <Link to ={`/users/${c.commenterID}`}><Button variant="outline-dark">     Profile
+                </Button></Link>
+                <hr></hr>
+             See Details
+         
+
+            </>
+
+)}
+             
+              
               {/* <button>Edit</button> */}
+
+
 
           <Button
                     variant="outline-dark"
