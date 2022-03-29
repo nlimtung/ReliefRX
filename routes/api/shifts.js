@@ -8,6 +8,7 @@ router.get('/:id', shiftCtrl.shiftDetails)
 // router.get('/myposts', shiftCtrl.myPostIndex)
 router.delete ('/:id', shiftCtrl.shiftDelete)
 router.post('/:id/comment',shiftCtrl.addComment )
+router.put ('/:id/assign', shiftCtrl.assignUser)
 
 
 module.exports = router;

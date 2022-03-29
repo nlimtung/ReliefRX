@@ -28,7 +28,6 @@ export default class ShiftDetailsPage extends Component {
       })
       
     };
-    // 623f8afff90c7e08ab2d3e21
 
     handleSubmit= async (e) =>{
       e.preventDefault()

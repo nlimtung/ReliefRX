@@ -28,9 +28,10 @@ const shiftSchema = new mongoose.Schema(
         }, 
         compensation:Number, 
         additionalDetails: "String",
+        assignedUserId: String,    
         user:  { type: Schema.Types.ObjectId, ref: 'User'},
         comment: [commentSchema]
-
+        
     }, 
     {
   timestamps: true,

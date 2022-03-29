@@ -18,6 +18,32 @@ export default class MyPostsPage extends Component {
         }
       }
 
+      
+      handleAssignShift= async (e) =>{
+        e.preventDefault()
+        try{
+
+            console.log(e.target.id)
+            console.log(e.target.name)
+            let jwt = localStorage.getItem('token')
+            const createShift = await fetch("/api/shifts/:id/assign", {
+                method: "PUT",
+                headers: {"Content-Type": "application/json", 'Authorization': 'Bearer ' + jwt},
+                body: JSON.stringify({
+                  shiftId: e.target.id,
+                  assignedUserId : e.target.name
+                })
+            })
+            let serverResponse = await createShift.json()
+               console.log("Success:", serverResponse)  
+                 window.location.reload()
+        }
+        catch(err) {
+            console.log("error", err)
+        }
+    }
+
+
       handleDelete= async (e) =>{
         e.preventDefault()
         try{
@@ -40,6 +66,7 @@ export default class MyPostsPage extends Component {
         <div className="page">
             <NavBar/>
             <MyPostsIndex
+              handleAssignShift = {this.handleAssignShift}
               myPosts = {this.state.myPosts}
               handleDelete = {this.handleDelete}
               users = {this.state.users}/>
