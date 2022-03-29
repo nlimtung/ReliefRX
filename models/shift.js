@@ -5,7 +5,9 @@ const {Schema} = mongoose;
 const commentSchema = new mongoose.Schema(
     {
 
-       comment: String
+       comment: String,
+       commenter: String, 
+       commenterID: String
     }, 
     {
         timestamps: true,      

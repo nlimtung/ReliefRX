@@ -28,7 +28,6 @@ function ShiftDetails(props) {
           <h3> {props.compensation}</h3><br/>
           <h5>Additional Details: </h5>
           <h3> {props.additionalDetails}</h3><br/>
-
          
         </div>
 
@@ -47,12 +46,19 @@ If interested in the shift, please fill out form below:<br/><br/>
 
         >
           <label>Message:</label> <br/>
+
           <textarea
+            // commentName =   {props.selfUser.map((u)=>(u.name) )}
+
             onChange={(e)=>props.handleChange(e)}
             name = "interest"
             value = {props.interest}
             id={props._id}
 
+            
+          
+
+           
           /> <br/>
 
 
