@@ -64,7 +64,8 @@ async function addComment (req, res){
     let newComment = {
       comment: req.body.comment,
       commenter: req.user.name, 
-      commenterID: req.user._id
+      commenterID: req.user._id,
+      commenterMail: req.user.email
     }
     shift.comment.push(newComment)
     shift.save()

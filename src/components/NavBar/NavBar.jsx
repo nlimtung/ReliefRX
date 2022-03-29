@@ -45,7 +45,7 @@ console.log('click')
 
 
             {this.state.user.map((u)=>(
-              <h3 key = {u._id}>{u.name}</h3>
+              <h3 key = {u._id}>welcome <br/>{u.name}</h3>
             ))}
 
             <Link to = "/shifts/new"><li>Submit a shift</li></Link>
