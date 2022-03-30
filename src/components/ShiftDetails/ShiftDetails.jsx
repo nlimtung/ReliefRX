@@ -9,8 +9,6 @@ import Button from 'react-bootstrap/Button';
 
 function ShiftDetails(props) {
 
-
-
   return (
     
     <div className = "ShiftDetails">

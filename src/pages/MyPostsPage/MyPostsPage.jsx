@@ -22,16 +22,13 @@ export default class MyPostsPage extends Component {
       handleAssignShift= async (e) =>{
         e.preventDefault()
         try{
-
-            console.log(e.target.id)
-            console.log(e.target.name)
             let jwt = localStorage.getItem('token')
             const createShift = await fetch("/api/shifts/:id/assign", {
                 method: "PUT",
                 headers: {"Content-Type": "application/json", 'Authorization': 'Bearer ' + jwt},
                 body: JSON.stringify({
                   shiftId: e.target.id,
-                  assignedUserId : e.target.name
+                  assignedUserId : e.target.value
                 })
             })
             let serverResponse = await createShift.json()

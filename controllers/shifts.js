@@ -26,6 +26,7 @@ async function create (req, res) {
 
 async function shiftIndex(req, res) {
   try{
+
     let shifts = await ShiftModel.find().populate('user').exec()
     res.status(200).json(shifts)        
   }
@@ -37,6 +38,8 @@ async function shiftIndex(req, res) {
 async function shiftDetails(req, res) {
 
   try{
+    console.log(req.user._id)
+
     let shifts = await ShiftModel.find({user:req.user._id})
     res.status(200).json(shifts)        
   }
@@ -77,6 +80,7 @@ async function addComment (req, res){
 
 async function assignUser (req, res){
   try{    
+    
     const updateAssignedUser = {
       assignedUserId:req.body.assignedUserId
     }
@@ -91,6 +95,19 @@ console.log(newShift)
   }
 }
 
+async function assignedShifts (req, res){
+  try{    
+    console.log("hello")
+
+   const newShift = await ShiftModel.find({assignedUserId: req.user._id});
+
+    res.status(200).json(newShift)
+  }
+  catch(err){
+    res.status(400).json(err)
+  }
+}
+
 module.exports = {
-    create, shiftIndex, shiftDetails,shiftDelete, addComment, assignUser
+    create, shiftIndex, shiftDetails,shiftDelete, addComment, assignUser, assignedShifts
   }

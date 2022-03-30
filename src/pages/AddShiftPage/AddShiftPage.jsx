@@ -1,4 +1,3 @@
-// import e from "express";
 import React, { Component } from "react";
 import AddShiftForm from "../../components/AddShiftForm/AddShiftForm";
 import NavBar from "../../components/NavBar/NavBar";
@@ -52,6 +51,8 @@ export default class AddShiftPage extends Component {
                 additionalDetails: ''
             })
                 console.log(serverResponse)
+                window.location.href = '/shifts/all'
+
         
         }
         catch(err) {

@@ -7,53 +7,61 @@ import Button from 'react-bootstrap/Button';
 function MyPostsIndex(props) {
   return (
       <div className = "MyPostsIndex" >
+
+{/* post info */}
+
         <h1>My Posted Shifts</h1>
           {props.myPosts.map((m)=>(
-            <div className='my-index-card'>
-              <div>
-              <h6>Pharmacy name: {m._id}{m.name}<br/> Date : {new Date(m.date).toDateString()}<br/> Address: {m.address}<br/> city: {m.city}<br/>Software: {m.software}<br/> Additional Details: {m.additionalDetails} </h6>
+            <div key = {m._id} className='my-index-card' >
+              <h6 >Pharmacy name:{m.name}<br/> Date : {new Date(m.date).toDateString()}<br/> Address: {m.address}<br/> city: {m.city}<br/>Software: {m.software}<br/> Additional Details: {m.additionalDetails} </h6>
             <hr></hr>
+
+{/* messages */}
+
               <u><h4>Messages</h4></u>
               {m.comment.map((c)=>
-                <>
-                <h5>{c.comment} <br/>Name: {c.commenter} Email:  {c.commenterMail}</h5>
-             
-                <Link to ={`/users/${c.commenterID}`}><Button variant="outline-dark">     Profile
-                {/* assign shift button */}
-                </Button></Link>
-                <form
-                    onSubmit= {(e) => props.handleAssignShift(e)}
-                    id ={m._id} 
-                    name = {c.commenterID}
-                >
-                <label
-                  name = {c.commenter}> </label>
+                <div key = {c._id}>
 
-                  <button
-                    type = "submit"
-                    value = "submit"
-                    >assign shift
-                  </button>
-                </form>
+                  <>
+                  <h5>{c.comment} <br/><br/>Name: {c.commenter} Email:  {c.commenterMail}</h5>
+              
+                  <Link to ={`/users/${c.commenterID}`}><Button variant="outline-dark">     Profile
+  
 
-                <hr></hr>
+
+  {/* assign shift button */}
+
+                  </Button></Link>
+                  <form
+                      onSubmit= {(e) => props.handleAssignShift(e)}
+                      id ={m._id} 
+                      name = "commenterID"
+                      value = {c.commenterID}
+                  >
+
+                    <button
+                      type = "submit"
+                      value = "submit"
+                      >assign shift
+                    </button>
+                  </form>
+
+                  <hr></hr>
          
-
             </>
+            </div>
 
+           
 )}
              
-              
-
 
 {/* delete button */}
-          <Button
-                    variant="outline-dark"
-                    id={m._id}
-                    onClick={(e) => props.handleDelete(e)}>Delete Posting
+                    <Button
+                      variant="outline-dark"
+                      id={m._id}
+                      onClick={(e) => props.handleDelete(e)}>Delete Posting
 
-                </Button>
-              </div>
+                    </Button>
 
 
 

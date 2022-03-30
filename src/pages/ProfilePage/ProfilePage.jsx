@@ -9,10 +9,8 @@ export default class ProfilePage extends Component {
         licenseNumber:'',
         jobStatus: '',
         showUpdateForm: false,
+        assignedShifts: []
     }
-
-
-
     
     handleChange = (e) => {
 
@@ -22,7 +20,6 @@ export default class ProfilePage extends Component {
         
     };
     handleEditSubmit=  (e) =>{
-        console.log("hello")
 
         this.setState({
             showUpdateForm: true
@@ -71,14 +68,20 @@ export default class ProfilePage extends Component {
     async componentDidMount() {
         try {
           let jwt = localStorage.getItem('token')
-          let fetchShiftReponse = await fetch('/api/users', { headers: { 'Authorization': 'Bearer ' + jwt }}) 
-          let user = await fetchShiftReponse.json();
+          let fetchShiftReponse = await fetch('/api/shifts/assigned', { headers: { 'Authorization': 'Bearer ' + jwt }}) 
+
+          let fetchUserReponse = await fetch('/api/users', { headers: { 'Authorization': 'Bearer ' + jwt }}) 
+          let user = await fetchUserReponse.json();
+          let shifts = await fetchShiftReponse.json();
+
           this.setState({user:user})
-      
+          this.setState({assignedShifts:shifts})
+
         } catch (err) {
           console.error('ERROR:', err) 
         }
       }
+
 
 
 
@@ -88,7 +91,7 @@ export default class ProfilePage extends Component {
                 <NavBar/>
                     {this.state.user.map((u)=>(
             
-                        <ProfileInfo
+                        <ProfileInfo key = {u._id}
                         user= {this.state.user}
                         oldlicenseNumber = {u.licenseNumber}
                         oldjobStatus= {u.jobStatus}
@@ -102,7 +105,7 @@ export default class ProfilePage extends Component {
 
                     {this.state.user.map((u)=>(
 
-                    <UpdateProfileForm
+                    <UpdateProfileForm key = {u._id}
                             user= {this.state.user}
                             licenseNumber = {this.state.licenseNumber}
                             jobStatus= {this.state.jobStatus}

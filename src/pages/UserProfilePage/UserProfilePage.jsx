@@ -27,7 +27,7 @@ export default class UserProfilePage extends Component {
         <div className="page">
             <NavBar/>
             {this.state.users.filter(all =>all._id ===this.props.match.params.id).map(oneUser=>
-          <UserProfile
+          <UserProfile key = {oneUser._id}
                 name = {oneUser.name}
                 email = {oneUser.email}
                 licenseNumber= {oneUser.licenseNumber}
