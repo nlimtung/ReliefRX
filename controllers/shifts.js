@@ -38,8 +38,6 @@ async function shiftIndex(req, res) {
 async function shiftDetails(req, res) {
 
   try{
-    console.log(req.user._id)
-
     let shifts = await ShiftModel.find({user:req.user._id})
     res.status(200).json(shifts)        
   }
@@ -80,8 +78,6 @@ async function addComment (req, res){
 
 async function assignUser (req, res){
   try{    
-    console.log ("hello")
-    console.log(req.body.assignedUserId)
     const updateAssignedUser = {
       assignedUserId:req.body.assignedUserId
     }
@@ -96,7 +92,6 @@ async function assignUser (req, res){
 
 async function assignedShifts (req, res){
   try{    
-    console.log("hello")
 
    const newShift = await ShiftModel.find({assignedUserId: req.user._id});
 

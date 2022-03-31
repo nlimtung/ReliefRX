@@ -41,9 +41,6 @@ console.log('click')
       <div className = "NavBar">
           <ul>
             <h1>Relief RX</h1>
-            {/* <ShiftDetails key = {filteredShift._id} */}
-
-
             {this.state.user.map((u)=>(
               <h3 key = {u._id}>welcome <br/>{u.name}</h3>
             ))}
