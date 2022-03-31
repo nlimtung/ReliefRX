@@ -1,5 +1,5 @@
 .AddShiftForm {
-    grid-column: 2/5;
+    grid-column: 2/4;
     grid-row:1/5;
     text-align: center;
     margin: 6vh 10vh 6vh 10vh;
@@ -14,11 +14,15 @@
     font-size: 20px;
     text-align: center;
     padding: 5px;
-    font-family: Georgia, serif;
+    /* font-family: Georgia, serif; */
     position: relative;
 }
 
 .AddShiftForm form {
+    /* text-align: center; */
+
     padding-top: 2vh;
 }
+
+
 

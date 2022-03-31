@@ -22,7 +22,7 @@ export default class MyPostsPage extends Component {
       handleAssignShift= async (e) =>{
         e.preventDefault()
         try{
-            console.log(e.target.name)
+            console.log(e.target.file)
             let jwt = localStorage.getItem('token')
             const createShift = await fetch("/api/shifts/:id/assign", {
                 method: "PUT",
@@ -34,7 +34,7 @@ export default class MyPostsPage extends Component {
             })
             let serverResponse = await createShift.json()
                console.log("Success:", serverResponse)  
-                //  window.location.reload()
+                 window.location.reload()
         }
         catch(err) {
             console.log("error", err)
