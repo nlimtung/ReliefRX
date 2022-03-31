@@ -2,7 +2,7 @@
 
 Relief RX is a platform to connect pharmacies looking for shifts to fill, and pharmacists who are looking to take on extra shifts
 
-Site can be found [here] (https://rxreliefsei.herokuapp.com/)
+Site can be found [here](https://rxreliefsei.herokuapp.com/)
 
 
 ---
