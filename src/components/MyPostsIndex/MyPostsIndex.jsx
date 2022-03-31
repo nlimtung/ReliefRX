@@ -13,9 +13,9 @@ function MyPostsIndex(props) {
         <h1>My Posted Shifts</h1>
           {props.myPosts.map((m)=>(
             <div key = {m._id} className='my-index-card' >
-              <div>
+              <div className='my-pharmacy-details'>
                 <h4>Pharmacy Details:</h4>
-              <h5 > Name: {m.name}<br/> Date: {new Date(m.date).toDateString()}<br/> Address: {m.address}<br/> City: {m.city}<br/>Software: {m.software}<br/> Additional Details: {m.additionalDetails} </h5>
+              <h6 > Name: {m.name}<br/> Date: {new Date(m.date).toDateString()}<br/> Address: {m.address}<br/> City: {m.city}<br/>Software: {m.software}<br/> Additional Details: {m.additionalDetails} </h6>
 
 {/* delete button */}
 
@@ -45,7 +45,8 @@ function MyPostsIndex(props) {
                   <br/>
 
                   <h5 className='message'>{c.comment}</h5>
-  
+                  <br/>
+
   {/* assign shift button */}
                 {m.assignedUserId == c.commenterID ?
                   <div className='assigned'>

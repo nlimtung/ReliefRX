@@ -16,6 +16,7 @@
     padding: 15px;
     display: grid;
     grid-template-columns: 1fr 2.5fr;
+    gap: 10px
 
 
 }
@@ -39,5 +40,7 @@
     text-align: center;
     width: 50%
 
-
+}
+.my-pharmacy-details {
+    border-right: 1px lightgrey solid;
 }

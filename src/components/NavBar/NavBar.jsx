@@ -47,6 +47,7 @@ console.log('click')
 
             <Link to = "/shifts/new"><li>Submit a shift</li></Link>
             <Link to = '/shifts/all'><li>Available shifts</li></Link>
+            
             <Link to = '/shifts/myposts'><li>My postings</li></Link>
 
             <Link to = '/profile'><li>Profile</li></Link>

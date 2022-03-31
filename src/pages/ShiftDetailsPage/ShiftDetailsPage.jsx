@@ -67,6 +67,7 @@ export default class ShiftDetailsPage extends Component {
 
                     {this.state.shiftDetails.filter(allshifts=> allshifts._id ===this.props.match.params.id).map(filteredShift =>(
                           <ShiftDetails key = {filteredShift._id}
+                        additionalDetails = {filteredShift.additionalDetails}
                         id = {filteredShift._id}
                         name = {filteredShift.name}
                         address = {filteredShift.address}
