@@ -80,14 +80,13 @@ async function addComment (req, res){
 
 async function assignUser (req, res){
   try{    
-    
+    console.log ("hello")
+    console.log(req.body.assignedUserId)
     const updateAssignedUser = {
       assignedUserId:req.body.assignedUserId
     }
    const newShift = await ShiftModel.findOneAndUpdate({_id:req.body.shiftId}, updateAssignedUser, {new:true, omitUndefined:true});
-console.log(newShift)    
-    console.log('assign')
-    console.log(req.body)
+
     res.status(200).json(newShift)
   }
   catch(err){

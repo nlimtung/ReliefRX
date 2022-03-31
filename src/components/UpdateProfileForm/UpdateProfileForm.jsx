@@ -8,8 +8,14 @@ function UpdateProfileForm(props) {
   return (
     <div className = "UpdateProfileForm" style={{display: props.showUpdateForm == true ? 'block' : 'none'}}  >
         <form onSubmit={(e)=>props.handleSubmit(e)}>
-          <h2>Edit Profile:</h2>
-          
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
+
+          <h4>Edit Profile:</h4>
+  
           <label> License Number:</label><br/>
 
             <input

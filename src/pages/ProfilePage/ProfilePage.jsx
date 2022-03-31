@@ -92,11 +92,13 @@ export default class ProfilePage extends Component {
                     {this.state.user.map((u)=>(
             
                         <ProfileInfo key = {u._id}
+                        assignedShifts = {this.state.assignedShifts}
                         user= {this.state.user}
                         oldlicenseNumber = {u.licenseNumber}
                         oldjobStatus= {u.jobStatus}
                         showUpdateForm = {this.state.showUpdateForm}
                         handleEditSubmit = {this.handleEditSubmit}
+
                     
                         />
                         
@@ -106,6 +108,7 @@ export default class ProfilePage extends Component {
                     {this.state.user.map((u)=>(
 
                     <UpdateProfileForm key = {u._id}
+
                             user= {this.state.user}
                             licenseNumber = {this.state.licenseNumber}
                             jobStatus= {this.state.jobStatus}

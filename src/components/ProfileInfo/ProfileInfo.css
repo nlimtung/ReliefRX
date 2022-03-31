@@ -4,3 +4,15 @@
     margin: 6vh 10vh 6vh 10vh;
     text-align: center;
 }
+
+.assignedShiftTable {
+    display: flex;
+    justify-content: center;
+}
+.ProfileInfo table {
+    width: 40%
+}
+.ProfileInfo th, td{
+    font-size: 20px;
+    border: 1px solid lightgrey;
+}
