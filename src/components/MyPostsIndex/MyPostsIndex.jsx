@@ -15,7 +15,7 @@ function MyPostsIndex(props) {
             <div key = {m._id} className='my-index-card' >
               <div className='my-pharmacy-details'>
                 <h4>Pharmacy Details:</h4>
-              <h6 > Name: {m.name}<br/> Date: {new Date(m.date).toDateString()}<br/> Address: {m.address}<br/> City: {m.city}<br/>Software: {m.software}<br/> Additional Details: {m.additionalDetails} </h6>
+              <h6 > Name: {m.name}<br/> Date: {new Date(m.date).toDateString()}<br/> Address: {m.address}<br/> City: {m.city}<br/>Software: {m.software}<br/> Additional Details:<br/> {m.additionalDetails} </h6>
 
 {/* delete button */}
 

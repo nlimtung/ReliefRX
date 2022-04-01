@@ -1,5 +1,11 @@
 import React from 'react';
 import './ProfileInfo.css';
+import { Link } from 'react-router-dom';
+
+// import ImageUploader from 'react-images-upload';
+
+// import AWS from 'aws-sdk'
+
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import Button from 'react-bootstrap/Button';
 
@@ -7,6 +13,9 @@ import './ProfileInfo.css';
 function ProfileInfo(props) {
   return (
     <div className = "ProfileInfo" >
+
+
+
       <div className = "profileTop">
         {props.user.map((u)=>(
           <div key = {u._id} >
@@ -36,10 +45,39 @@ function ProfileInfo(props) {
 
 
         </div>
+
+        {props.file}
+
+
+
+
+
 {/* assigned shifts */}
 {props.assignedShifts.length ?
 <div>
   <hr></hr>
+  <form onSubmit = {(e)=>props.handleImageSubmit(e)}>
+                <label>Select image:</label>
+                <input 
+                enctype="multipart/form-data"
+                  type="file" 
+                  // value= {props.file}
+                  
+                  // id="img" 
+                  name="file-upload" 
+                  accept="image/*"
+                  onChange={(e)=>props.handleFileChange(e)}
+                  />
+                
+
+                  <button
+                    type = "submit"
+                    value = "submit"
+                    >Submit image
+                  </button>
+          </form>
+
+
 
         <h3>Assigned Shifts</h3><br/>
 
@@ -51,29 +89,39 @@ function ProfileInfo(props) {
                 <tr>
                   <th>Date</th>
                   <th>Location</th>
+                  <th>Details</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>{new Date(a.date).toDateString()}</td>
                   <td>{a.address}, {a.city}</td>
+                  <td> <Link to ={`/shifts/${a._id}`}>Details</Link></td>
                 </tr>
               </tbody>
 
-
-
             </table>
+
+
+
+  
+
+
 
           </div>
           
         ))}
+
+
       </div>:
       <div>
         
       </div>}
 
-
     </div>
+
+
+    
   );
 }
 

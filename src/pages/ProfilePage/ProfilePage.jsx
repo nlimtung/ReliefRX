@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import ProfileInfo from "../../components/ProfileInfo/ProfileInfo";
 import UpdateProfileForm from "../../components/UpdateProfileForm/UpdateProfileForm";
+import axios from 'axios'
 
 export default class ProfilePage extends Component {
     state = {
@@ -9,8 +10,12 @@ export default class ProfilePage extends Component {
         licenseNumber:'',
         jobStatus: '',
         showUpdateForm: false,
-        assignedShifts: []
+        assignedShifts: [], 
+        upload:null
+
     }
+
+
     
     handleChange = (e) => {
 
@@ -19,11 +24,51 @@ export default class ProfilePage extends Component {
         })
         
     };
+
+    handleFileChange  = (e) => {
+        console.log (e.target.files[0])
+        
+        this.setState({
+            upload : e.target.files[0]}
+        )}
+
     handleEditSubmit=  (e) =>{
 
         this.setState({
             showUpdateForm: true
         })
+    }
+// 
+    handleImageSubmit = async (e)=>{
+        e.preventDefault()
+        try {
+            const formData = new FormData()
+            formData.append( "file", this.state.upload)
+            console.log(formData)
+
+
+
+            // axios.post('http://localhost:3000/upload', formData )
+
+
+            // let jwt = localStorage.getItem('token')
+            const addImage = await fetch("/api/images/create", {
+                method: "POST",
+                // headers: {'Content-Type': 'multipart/form-data', 'Authorization': 'Bearer ' + jwt},
+                body:formData
+            })
+            console.log(addImage)       
+
+            let serverResponse = await addImage.json()
+            console.log("Success:", serverResponse)  
+
+
+
+        }
+        catch (err) {
+            console.log("error", err)
+        }
+
     }
 
 
@@ -92,13 +137,16 @@ export default class ProfilePage extends Component {
                     {this.state.user.map((u)=>(
             
                         <ProfileInfo key = {u._id}
+                       file = {this.state.file}
+
                         assignedShifts = {this.state.assignedShifts}
                         user= {this.state.user}
                         oldlicenseNumber = {u.licenseNumber}
                         oldjobStatus= {u.jobStatus}
                         showUpdateForm = {this.state.showUpdateForm}
                         handleEditSubmit = {this.handleEditSubmit}
-
+                        handleImageSubmit= {this.handleImageSubmit}
+                        handleFileChange= {this.handleFileChange}
                     
                         />
                         
