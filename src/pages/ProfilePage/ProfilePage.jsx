@@ -6,8 +6,8 @@ import UpdateProfileForm from "../../components/UpdateProfileForm/UpdateProfileF
 export default class ProfilePage extends Component {
     state = {
         user:[], 
-        licenseNumber:'',
-        jobStatus: '',
+        licenseNumber:null,
+        jobStatus: null,
         showUpdateForm: false,
         assignedShifts: []
     }

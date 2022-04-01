@@ -17,19 +17,23 @@ function ProfileInfo(props) {
             <div>
               <h6>email:</h6>
               <h4>{u.email}</h4><br/>
-              {u.licenseNumber !== null ?
+              
+              {u.licenseNumber  == null?
+               <div>
+
+              </div>:
                 <div>
                   <h6>License Number:</h6>
                   <h4>{u.licenseNumber}</h4><br/>
-                </div>:
-                <div></div>
+                </div>
               }
-              {u.jobStatus !== null?
+              {u.jobStatus == null?
+              <div>
+
+              </div>:
               <div>
                 <h6>Job Status:</h6>
                 <h4>{u.jobStatus}</h4>
-              </div>:
-              <div>
               </div>}
             </div>
             </>
@@ -58,11 +62,12 @@ function ProfileInfo(props) {
                 type = "number"
                 value = {props.licenseNumber}
                 onChange={(e)=>props.handleChange(e)}
+                default = ''
             /><br/><br/>
           <label>Job Status</label><br/>
             <select
               name= "jobStatus"
-              default = ""
+              default = ''
               type = "text"
               value = {props.jobStatus}
               onChange={(e)=>props.handleChange(e)}
