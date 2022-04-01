@@ -2,6 +2,7 @@ import React from 'react';
 import './ProfileInfo.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 
 function ProfileInfo(props) {
@@ -42,9 +43,11 @@ function ProfileInfo(props) {
 
                {/* edit profile */}
 
-              <button onClick={(e)=>props.handleEditSubmit(e)}
+              <Button onClick={(e)=>props.handleEditSubmit(e)}
+                  variant="outline-secondary"
+
                   type = "submit"
-                  value = "submit">Edit Profile</button>
+                  value = "submit">Edit Profile</Button>
             </div>
           </div>
           
@@ -102,12 +105,17 @@ function ProfileInfo(props) {
                 <tr>
                   <th>Date</th>
                   <th>Location</th>
+                  <th>Details</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>{new Date(a.date).toDateString()}</td>
                   <td>{a.address}, {a.city}</td>
+                  <td>
+                  <Link to ={`/shifts/${a._id}`}> Details  </Link>
+
+                  </td>
                 </tr>
               </tbody>
 
