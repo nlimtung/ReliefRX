@@ -23,7 +23,7 @@ function ShiftIndexItem(props) {
           <div className='index-date'>
             <h6>Date needed: <br/></h6>
             <h6>{new Date(s.date).toDateString()}</h6>
-            <Link to ={`/shifts/${s._id}`}><Button variant="outline-dark">
+            <Link to ={`/shifts/${s._id}`}><Button variant="outline-secondary">
              See Details
             </Button></Link>
 

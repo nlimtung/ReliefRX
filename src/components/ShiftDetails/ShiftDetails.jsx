@@ -36,7 +36,7 @@ function ShiftDetails(props) {
             CONTACT INFORMATION: <br/>
               name: {props.user.name}<br/>
               contact email : {props.user.email}<br/>
-              <Link to ={`/users/${props.user._id}`}><Button variant="outline-dark">     Profile
+              <Link to ={`/users/${props.user._id}`}><Button variant="outline-secondary">     Profile
                 </Button></Link>
           <br/>
           <hr/>
@@ -65,7 +65,7 @@ If interested in the shift, please fill out form below:<br/><br/>
 
 
           <Button
-                variant="outline-dark"
+                variant="outline-secondary"
                 type = "submit"
                 value = "submit"
           >Submit Interest</Button>

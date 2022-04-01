@@ -20,7 +20,7 @@ function MyPostsIndex(props) {
 {/* delete button */}
 
               <Button
-                variant="outline-dark"
+                variant="outline-secondary"
                 id={m._id}
                 onClick={(e) => props.handleDelete(e)}>Delete Posting
 
@@ -48,13 +48,31 @@ function MyPostsIndex(props) {
                   <br/>
 
   {/* assign shift button */}
+  {/* remove assigment */}
                 {m.assignedUserId == c.commenterID ?
                   <div className='assigned'>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
-                      <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
-                    </svg> 
-                      Shift assigned to {c.commenter}
+                    <form
+                      onSubmit= {(e) => props.handleRemoveAssignShift(e)}
+                      id ={m._id} 
+                      // name = "commenterID"
+                      name = {c.commenterID}
+                      file = {c.commenter}
+                  >
+                    <Button
+                      variant="secondary"
+                      type = "submit"
+                      value = "submit"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar-check" viewBox="0 0 16 16">
+                          <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                          <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                        </svg>{' '}
+                        Shift assigned to {c.commenter}
+
+                    </Button>
+                  </form>
                   </div>:
+// assign shift
                   <form
                       onSubmit= {(e) => props.handleAssignShift(e)}
                       id ={m._id} 
@@ -63,7 +81,7 @@ function MyPostsIndex(props) {
                       file = {c.commenter}
                   >
                     <Button
-                      variant="outline-dark"
+                      variant="outline-secondary"
                       type = "submit"
                       value = "submit"
                       >assign shift to {c.commenter}

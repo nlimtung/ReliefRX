@@ -74,7 +74,7 @@ export default class LoginForm extends Component {
                             onChange={this.handleChange} 
                             required /><br/><br/>
 
-                    <Button type="submit"variant="outline-dark">Log In </Button>
+                    <Button type="submit"variant="outline-secondary">Log In </Button>
 
                 </form>
             </div>

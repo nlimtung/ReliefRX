@@ -26,6 +26,7 @@ export default function AddShiftForm(props) {
                         type = "text"
                         value = {props.city}
                         onChange={(e)=>props.handleChange(e)}
+                        required
                     /><br/>
 
                 <label>Address: </label><br/>
@@ -35,6 +36,7 @@ export default function AddShiftForm(props) {
                         type = "text"
                         value = {props.address}
                         onChange={(e)=>props.handleChange(e)}
+                        required
                     /> <br/>
                 <label>Date:</label><br/>
                      <input
@@ -42,6 +44,7 @@ export default function AddShiftForm(props) {
                         type = "date"
                         value = {props.date}
                         onChange={(e)=>props.handleChange(e)}
+                        required
                     /> <br/>
 
                 
@@ -51,6 +54,7 @@ export default function AddShiftForm(props) {
                         type = "text"
                         value = {props.software}
                         onChange={(e)=>props.handleChange(e)}
+                        required
                         > 
                             <option value = ""></option>
 
@@ -70,19 +74,20 @@ export default function AddShiftForm(props) {
                         type = "number"
                         value = {props.compensation}
                         onChange={(e)=>props.handleChange(e)}
+                        required
                     /> <br/>
                 <label>Additional comments: </label><br/>
 
-                <input
+                <textarea
                         name = "additionalDetails"
                         type = "text"
                         value = {props.additionalDetails}
                         onChange={(e)=>props.handleChange(e)}
-                    /> <br/>
+                    /> <br/> <br/>
 
 
               <Button
-              variant="outline-dark"
+              variant="outline-secondary"
               type = "submit"
               value = "submit"
               >Submit Post</Button>

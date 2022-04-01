@@ -91,7 +91,7 @@ export default class SignUpForm extends Component {
 
 
                     {/* <button type="submit"disabled={disable}>SIGN UP</button> */}
-                    <Button type="submit"disabled={disable}variant="outline-dark">Sign Up</Button>
+                    <Button type="submit"disabled={disable}variant="outline-secondary">Sign Up</Button>
 
 
                 </form>

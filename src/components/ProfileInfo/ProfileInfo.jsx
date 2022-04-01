@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProfileInfo.css';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
 
 
 function ProfileInfo(props) {
@@ -17,13 +17,26 @@ function ProfileInfo(props) {
             <div>
               <h6>email:</h6>
               <h4>{u.email}</h4><br/>
-              <h6>License Number:</h6>
-              <h4>{u.licenseNumber}</h4><br/>
-              <h6>Job Status:</h6>
-              <h4>{u.jobStatus}</h4>
+              {u.licenseNumber !== null ?
+                <div>
+                  <h6>License Number:</h6>
+                  <h4>{u.licenseNumber}</h4><br/>
+                </div>:
+                <div></div>
+              }
+              {u.jobStatus !== null?
+              <div>
+                <h6>Job Status:</h6>
+                <h4>{u.jobStatus}</h4>
+              </div>:
+              <div>
+              </div>}
             </div>
             </>
             <div><br/>
+
+
+               {/* edit profile */}
 
               <button onClick={(e)=>props.handleEditSubmit(e)}
                   type = "submit"
@@ -32,7 +45,40 @@ function ProfileInfo(props) {
           </div>
           
           ))}<br/>
-               {/* edit profile */}
+
+
+<div className = "UpdateProfileForm" style={{display: props.showUpdateForm == true ? 'block' : 'none'}}  >
+        <form onSubmit={(e)=>props.handleSubmit(e)}>
+          <h4>Edit Profile:</h4>
+  
+          <label> License Number:</label><br/>
+
+            <input
+                name = "licenseNumber"
+                type = "number"
+                value = {props.licenseNumber}
+                onChange={(e)=>props.handleChange(e)}
+            /><br/><br/>
+          <label>Job Status</label><br/>
+            <select
+              name= "jobStatus"
+              default = ""
+              type = "text"
+              value = {props.jobStatus}
+              onChange={(e)=>props.handleChange(e)}
+            >
+                <option value = ""></option>
+                <option value = "Looking for shifts">Looking for shifts</option>
+                <option value = 'Looking to fill shifts'>Looking to fill shifts</option>
+                            
+              </select><br/><br/>
+              <Button
+                  variant="outline-secondary"
+                  type = "submit"
+                  value = "submit"
+              >Submit</Button>
+        </form>
+    </div>
 
 
         </div>

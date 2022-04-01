@@ -17,10 +17,20 @@ function UserProfile(props) {
             <h4>{props.name}</h4><br/>
             <h6>Email:</h6>
             <h4>{props.email}</h4><br/>
-            <h6>License Number:</h6>
-            <h4>{props.licenseNumber}</h4><br/>
-            <h6>Job Status:</h6>
-            <h4>{props.jobStatus}</h4><br/>
+            {props.licenseNumber !== undefined ?
+                <div>
+                  <h6>License Number:</h6>
+                  <h4>{props.licenseNumber}</h4><br/>
+                </div>:
+                <div></div>
+              }
+              {props.jobStatus !== undefined?
+              <div>
+                <h6>Job Status:</h6>
+                <h4>{props.jobStatus}</h4>
+              </div>:
+              <div>
+              </div>}
       
     </div>
   );

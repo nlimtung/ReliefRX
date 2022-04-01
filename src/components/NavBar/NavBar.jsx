@@ -7,15 +7,23 @@ export default class NavBar extends Component {
 
 
   state = {
-    user:[]
+    user:[], 
+    myPosts:[]
 }
+
+
+
 
 async componentDidMount() {
   try {
     let jwt = localStorage.getItem('token')
-    let fetchShiftReponse = await fetch('/api/users', { headers: { 'Authorization': 'Bearer ' + jwt }}) 
-    let user = await fetchShiftReponse.json();
+    let fetchUserReponse = await fetch('/api/users', { headers: { 'Authorization': 'Bearer ' + jwt }}) 
+    let fetchShiftReponse = await fetch('/api/shifts/myposts', { headers: { 'Authorization': 'Bearer ' + jwt }}) 
+    let myPosts = await fetchShiftReponse.json();
+    let user = await fetchUserReponse.json();
     this.setState({user:user})
+    this.setState({myPosts:myPosts})
+
 
   } catch (err) {
     console.error('ERROR:', err) 
@@ -47,8 +55,10 @@ console.log('click')
 
             <Link to = "/shifts/new"><li>Submit a shift</li></Link>
             <Link to = '/shifts/all'><li>Available shifts</li></Link>
+            {this.state.myPosts.length? 
             
-            <Link to = '/shifts/myposts'><li>My postings</li></Link>
+            <Link to = '/shifts/myposts'><li>My postings</li></Link>:
+            <div></div>}
 
             <Link to = '/profile'><li>Profile</li></Link>
             <li href = ""onClick={this.handleLogout}>Log out</li>

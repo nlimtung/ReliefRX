@@ -31,16 +31,7 @@
 .message {
     padding-left: 15px;
 }
-.assigned {
-    background-color: grey;
-    color:aliceblue;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 5px;
-    text-align: center;
-    width: 50%
 
-}
 .my-pharmacy-details {
     border-right: 1px lightgrey solid;
 }
