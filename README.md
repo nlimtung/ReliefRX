@@ -4,6 +4,7 @@ Relief RX is a platform to connect pharmacies looking for shifts to fill, and ph
 
 Site can be found [here](https://rxreliefsei.herokuapp.com/)
 
+Trello board found [here](https://trello.com/b/osFXZB0W/project-4)
 
 ---
 
@@ -17,7 +18,7 @@ Usage:
 6. Assigned shifts can be found on the user’s profile page
 
 ---
-Screennshots
+Screenshots
 
 Posted shifts:
 ![screenshot1](public/images/index%20page.png)
@@ -36,6 +37,8 @@ Entity Relationship Diagram:
 
 ![erd](public/images/ERD%20relationship.png)
 
+
+
 ---
 
 Technologies Used:
@@ -43,3 +46,9 @@ Technologies Used:
 * MongoDB
 * React
 * Node.js
+
+---
+
+Icebox Items:
+* Further editing of profile page (ability to add resume, profile picture)
+* Real time communication between poster and user
