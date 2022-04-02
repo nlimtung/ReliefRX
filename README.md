@@ -16,9 +16,27 @@ Usage:
 5. If approved, the shift can be assigned to a pharmacist 
 6. Assigned shifts can be found on the user’s profile page
 
+---
+Screennshots
+
+Posted shifts:
+![screenshot1](public/images/index%20page.png)
+
+User-Posted shifts:
+![screenshot2](public/images/Posted%20Shifts.png)
+
+Profile Page
+![screenshot3](public/images/Profile%20Page.png)
+
+
+
+---
+
 Entity Relationship Diagram:  
 
-![screenshot](public/images/ERD%20relationship.png)
+![erd](public/images/ERD%20relationship.png)
+
+---
 
 Technologies Used:
 
