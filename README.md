@@ -8,7 +8,7 @@ Trello board found [here](https://trello.com/b/osFXZB0W/project-4)
 
 ---
 
-Usage:
+### Usage:
 
 1. A login is required to access the application features
 2. Once logged in, we can submit new shifts and see all the shifts that have been posted 
@@ -18,7 +18,7 @@ Usage:
 6. Assigned shifts can be found on the user’s profile page
 
 ---
-Screenshots
+### Screenshots
 
 Posted shifts:
 ![screenshot1](public/images/index%20page.png)
@@ -33,7 +33,7 @@ Profile Page
 
 ---
 
-Entity Relationship Diagram:  
+### Entity Relationship Diagram:  
 
 ![erd](public/images/ERD%20relationship.png)
 
@@ -41,7 +41,7 @@ Entity Relationship Diagram:
 
 ---
 
-Technologies Used:
+### Technologies Used:
 
 * MongoDB
 * React
@@ -49,6 +49,6 @@ Technologies Used:
 
 ---
 
-Icebox Items:
+### Icebox Items:
 * Further editing of profile page (ability to add resume, profile picture)
 * Real time communication between poster and user
